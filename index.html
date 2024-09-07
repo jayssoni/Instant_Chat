@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Room</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="room-container">
+    <div class="room-header">
+      <h2>Chat Room </h2>
+    </div>
+    <div class="room-options">
+      <form id="create-room-form" class="room-form">
+        <input type="text" id="create-username" placeholder="Enter your username" required />
+        <button type="submit">Create Room</button>
+      </form>
+      <form id="join-room-form" class="room-form">
+        <input type="text" id="join-username" placeholder="Enter your username" required />
+        <input type="text" id="room-id" placeholder="Enter room ID" required />
+        <button type="submit">Join Room</button>
+      </form>
+    </div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="room.js"></script>
+</body>
+</html>

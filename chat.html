@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Room</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+  <div class="chat-container">
+    <div class="side-panel">
+      <h3>Participants</h3>
+      <ul id="user-list"></ul>
+    </div>
+    <div class="chat-section">
+      <div class="chat-header">
+         <h2>CHAT ROOM
+          <div class="gen_roomid" id="gen_roomid">Room ID: 
+          <span id="room-id-display"></span>
+          <span style="cursor: pointer; " id="copy-icon" class="material-symbols-outlined">
+            <span id="copy-popup" class="copy-popup">Copied!</span>
+            content_copy
+            </span>
+        </div>
+         </h2>
+        
+      </div>
+      <div class="chat-window">
+        <div id="messages" class="messages"></div>
+      </div>
+      <form id="chat-form" class="chat-form">
+        <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off" required />
+        <button type="submit">
+          <span class="material-symbols-outlined">send</span>
+        </button>
+      </form>
+    </div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+  <script>
+    // Extract the room ID from the URL and display it
+    const urlParams = new URLSearchParams(window.location.search);
+    const roomId = urlParams.get('roomId');
+    document.getElementById('room-id-display').textContent = roomId;
+  </script>
+</body>
+</html>
